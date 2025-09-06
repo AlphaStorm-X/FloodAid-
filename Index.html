@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FloodAid: Rescue & Relief</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- LOGIN -->
+    <section id="step-login" class="step active-step">
+      <h1>FloodAid Login</h1>
+      <input type="text" id="login-username" placeholder="Username" autocomplete="off" />
+      <input type="password" id="login-password" placeholder="Password" autocomplete="off" />
+      <button id="login-btn">Login</button>
+      <p class="hint">Hint: Use <b>admin</b> / <b>1234</b></p>
+      <div id="login-error" class="error"></div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section id="step-dashboard" class="step">
+      <h1>Dashboard</h1>
+      <p>Welcome, <span id="dashboard-username"></span>!</p>
+      <nav class="dashboard-nav">
+        <button id="btn-to-submit-request">Submit Rescue Request</button>
+        <button id="btn-to-flood-prediction">Flood Prediction</button>
+        <button id="btn-to-ai-chatbot">AI Chatbot</button>
+        <button id="btn-to-request-inventory">View Rescue Requests</button>
+        <button id="btn-logout">Logout</button>
+      </nav>
+    </section>
+
+    <!-- SUBMIT RESCUE REQUEST -->
+    <section id="step-submit-request" class="step">
+      <h1>Submit Rescue Request</h1>
+      <input type="text" id="req-name" placeholder="Your Name" autocomplete="off" />
+      <textarea id="req-details" placeholder="Details about emergency"></textarea>
+      <select id="req-urgency">
+        <option value="high">High Urgency</option>
+        <option value="medium">Medium Urgency</option>
+        <option value="low">Low Urgency</option>
+      </select>
+      <select id="req-facility" multiple>
+        <option value="rescue">Rescue</option>
+        <option value="medicine">Medicine</option>
+        <option value="food">Food</option>
+        <option value="shelter">Shelter</option>
+        <option value="clothes">Clothes</option>
+        <option value="police">Police Team</option>
+        <option value="ngo">NGO Team</option>
+      </select>
+      <small>Hold Ctrl (Cmd on Mac) to select multiple</small>
+      <div class="buttons-row">
+        <button id="submit-request-back">Back</button>
+        <button id="submit-request-next">Submit & Next</button>
+      </div>
+      <div id="submit-request-error" class="error"></div>
+    </section>
+
+    <!-- FLOOD PREDICTION -->
+    <section id="step-flood-prediction" class="step">
+      <h1>Flood Prediction</h1>
+      <p><b>Location:</b> <span id="location-name">Detecting...</span></p>
+      <p><b>Flood Risk:</b> <span id="flood-risk-percentage">--%</span></p>
+      <div id="map" style="height: 350px; border-radius: 10px; margin-bottom: 15px;"></div>
+      <h3>High Risk Places</h3>
+      <ul id="high-risk-places">
+        <!-- dynamically filled -->
+      </ul>
+      <div class="buttons-row">
+        <button id="flood-prediction-back">Back</button>
+        <button id="flood-prediction-next">Next</button>
+      </div>
+    </section>
+
+    <!-- AI CHATBOT -->
+    <section id="step-ai-chatbot" class="step">
+      <h1>AI Chatbot - Flood & Disaster Assistant</h1>
+      <div id="chat-window"></div>
+      <form id="chat-form">
+        <input type="text" id="chat-input" placeholder="Ask me anything about floods or disasters..." autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+      <div class="buttons-row">
+        <button id="ai-chatbot-back">Back</button>
+        <button id="ai-chatbot-logout">Logout</button>
+      </div>
+      <div id="chat-error" class="error"></div>
+    </section>
+
+    <!-- REQUEST INVENTORY -->
+    <section id="step-request-inventory" class="step">
+      <h1>Rescue Requests Inventory</h1>
+      <div id="request-inventory-list"></div>
+      <h3>Summary</h3>
+      <div id="request-inventory-summary"></div>
+      <div class="buttons-row">
+        <button id="request-inventory-back">Back to Dashboard</button>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
