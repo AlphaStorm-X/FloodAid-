@@ -1,7 +1,7 @@
 # FloodAid-
 🌊 FloodAid: Rescue &amp; Relief Web App  FloodAid is a simple web app designed to support rescue and relief efforts during floods. It allows admins to log in, submit and manage rescue requests, view flood risk predictions on a map, and interact with an AI-powered chatbot.  
 
-**Live Demo:**https://subtle-rabanadas-b441da.netlify.app/
+**Live Demo:**https://694bbfa3916017998dbe3322--subtle-rabanadas-b441da.netlify.app/
 
 FloodAid is a disaster response web application focused on helping users submit flood rescue requests, view predictions, and interact with an AI chatbot for disaster-related assistance.
 
